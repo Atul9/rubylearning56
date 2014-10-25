@@ -17,17 +17,11 @@ print "Buzz". For numbers which are multiples of both three and five print
 # >> fizzbuzz(15)
 # => 'FizzBuzz'
 #
-def fizzbuzz(num)
-  if num % 3 == 0 && num % 5 == 0
-    'FizzBuzz'
-  elsif
-    num % 3 == 0
-    'Fizz'
-  elsif num % 5 == 0
-    'Buzz'
-  else
-    num
-  end
+def fizzbuzz(number)
+  result = ''
+  result << 'Fizz' if number % 3 == 0
+  result << 'Buzz' if number % 5 == 0
+  result.empty? ? number : result
 end
 if __FILE__ == $PROGRAM_NAME
   1.upto(100) do |num|
