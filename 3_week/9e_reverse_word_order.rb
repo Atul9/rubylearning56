@@ -12,4 +12,4 @@ end
 print 'Enter a string : '
 str = gets.chomp
 puts 'Reversed order : %s ' % reverse_word_order(str)
-# 
+
