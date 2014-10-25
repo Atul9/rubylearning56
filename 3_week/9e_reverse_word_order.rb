@@ -7,8 +7,9 @@ be very helpful for solving this exercise.
 # >> reverse_word_order "Hello world"
 # => "world Hello"
 def reverse_word_order(str)
-  str.split.reverse().join(' ')
+  str.split.reverse.join(' ')
 end
-puts "Enter a string : "
+print 'Enter a string : '
 str = gets.chomp
-puts reverse_word_order(str)
+puts 'Reversed order : %s ' % reverse_word_order(str)
+# 
