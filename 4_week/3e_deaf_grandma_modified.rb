@@ -66,7 +66,7 @@ class Grandma
   # >> my_granny.asks ""
   # => ""
   def asks(string)
-    string
+    gets.chomp
   end
 end
 
@@ -79,4 +79,5 @@ if __FILE__ == $0
     answer = my_granny.asks('What are you doing sonny?')
     puts my_granny.response(answer)
   end
+  puts 'BYE SWEETIE'
 end
