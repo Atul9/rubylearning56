@@ -11,10 +11,10 @@ each time; maybe any year at random between 1930 and 1950. You can't stop
 talking to grandma until you shout BYE.
 Adapted from Chris Pine's Book.
 For example:
-You enter: Hello Grandma
-Grandma responds: HUH?! SPEAK UP, SONNY!
+You enter:
 You enter: HELLO GRANDMA
 Grandma responds: NO, NOT SINCE 1938!
+Grandma responds: HUH?! SPEAK UP, SONNY!
 =end
 # doctest: yelled will return true if it is all uppercased
 # >> yelled? 'HELLO'
