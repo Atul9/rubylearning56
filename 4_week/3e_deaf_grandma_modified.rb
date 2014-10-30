@@ -60,13 +60,11 @@ class Grandma
     byes == 3
   end
   # doctest: Test string
-  # >> my_granny.asks "Hey"
-  # => "Hey"
-  # doctest: Test blank space
-  # >> my_granny.asks ""
-  # => ""
-  def asks(string)
-    gets.chomp
+  # >> my_granny.asks question: "Hey", test: 'My answer'
+  # => "My answer"
+  def asks(question: 'some default message', test: false)
+    print question unless test
+    test || gets.chomp
   end
 end
 
@@ -76,7 +74,7 @@ if __FILE__ == $0
 
   # We need to write a set of code that we might like to have...
   until my_granny.done?
-    answer = my_granny.asks('What are you doing sonny?')
+    answer = my_granny.asks(question: 'What is up, Sonny? ')
     puts my_granny.response(answer)
   end
   puts 'BYE SWEETIE'
