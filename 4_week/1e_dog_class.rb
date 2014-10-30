@@ -10,21 +10,18 @@ class Dog
   def initialize(name)
     @name = name
   end
-  def myname
-    @name
-  end
   def bark
-    'Ruff! Ruff!'
+    "#{@name} is barking. Ruff! Ruff!"
   end
   def eats
-    'eat bones'
+    "He eats bones."
   end
   def chase_cat
-    'Tom'
+    'Tom.'
   end
 end
 d = Dog.new('Leo')
-puts "My name is #{d.myname}.\n #{d.bark}"
-puts "I eat #{d.eats}"
-puts "I chase #{d.chase_cat}"
-puts "My id is #{d.object_id}"
+puts d.bark
+puts d.eats
+puts "He chases #{d.chase_cat}."
+puts "His id is #{d.object_id}."
