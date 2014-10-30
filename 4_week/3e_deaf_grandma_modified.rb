@@ -22,10 +22,10 @@ class Grandma
   def response(said)
     if yelled? said
       if said == 'BYE'
-        bye_count += 1
+        @byes += 1
         heard
       else
-        bye_count = 0
+        @byes = 0
         heard
       end
     else
@@ -37,25 +37,46 @@ class Grandma
   def unheard
     'HUH?! SPEAK UP, SONNY!'
   end
-  # doctest: check method done
+  # doctest: done? is true if BYE is said three timess consecutively
+  # >> 3.times { my_granny.response('BYE') }
+  # >> my_granny.done?
+  # => true
+  # doctest: done? is false if BYE is said three times but not consecutivly
+  # >> my_granny.response('BYE')
+  # >> my_granny.response('something else')
+  # >> my_granny.response('BYE')
+  # >> my_granny.response('BYE')
+  # >> my_granny.done?
+  # => false
+  # doctest: done? is false if you yelled at Granny
+  # >> my_granny.response('HELLO')
+  # >> my_granny.done?
+  # => false
+  # doctest: done? is false if you do not yell at Granny
+  # >> my_granny.response('hello')
   # >> my_granny.done?
   # => false
   def done?
-    if byes != 3
-      return true
-    else
-      return false
-    end
+    byes == 3
+  end
+  # doctest: Test string
+  # >> my_granny.asks "Hey"
+  # => "Hey"
+  # doctest: Test blank space
+  # >> my_granny.asks ""
+  # => ""
+  def asks(string)
+    string
   end
 end
 
-if __FILE__ == $PROGRAM_NAME
+if __FILE__ == $0
   puts 'HEY,THERE, SONNY! GRANDMA HAS GOT A HEARING PROBLEM. PLEASE SHOUT'
   my_granny = Grandma.new
 
   # We need to write a set of code that we might like to have...
   until my_granny.done?
-    answer = my_granny.asks("What are you doing sonny?")
-    puts my_granny.responds(answer)
+    answer = my_granny.asks('What are you doing sonny?')
+    puts my_granny.response(answer)
   end
 end
