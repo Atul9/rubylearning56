@@ -5,7 +5,7 @@ puts "Area is = #{r.area}"
 puts "Perimeter is = #{r.perimeter}"
 =end
 class Rectangle
-  attr :perimeter, :area
+  attr_reader :perimeter, :area
 
   # because without this method, that means that obviously the attr :perimeter
   # does exactly what the method below does.
