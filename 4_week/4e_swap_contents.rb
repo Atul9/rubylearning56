@@ -5,6 +5,8 @@ contents of A and B. That is after the program is executed, A should contain
 B's contents and B should contains A's contents.
 =end
 =begin
+Following code for small files:
+
 def filereadwrite(file1, file2)
   f1 = File.open(file1,"r")
   f2 = File.open(file2, "w")
