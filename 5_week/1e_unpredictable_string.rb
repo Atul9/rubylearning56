@@ -11,7 +11,7 @@
 # replace the < with &lt; if you are posting directly to the forums. If you are
 # embedding your code, this does not apply to you.
 # This program works as expected in Rubinius
-class UnpredictableString < String
+class UnpredictableString < String # Do we truly need to be subclassed, if we want to solve this in MRI?
   def scramble
     split('').shuffle!.join
   end
