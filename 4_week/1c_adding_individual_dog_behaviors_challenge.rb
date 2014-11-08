@@ -18,8 +18,15 @@ class Dog
   def teach_trick(trick_name)
     @tricks_known << trick_name
   end
-  def method_missing(method, *args, block)
-    puts "#{@name} doesn't know ho to #{method}"
+
+  # added an ampersand to the block name, even though it isn't being used.
+  def method_missing(method, *args, &block)
+    # Are we using method_missing to have the behavior happen?  Then we need to
+    # write some code for it.. We are writing method_missing to tell if the
+    # object knows which behaviours. It does not know certain behaviour.
+    if method #Condition if method doesnt exists
+      puts "#{@name} doesn't know how to #{method}"
+    end
   end
   def bark
     "#{@name} is barking. Ruff! Ruff!"
@@ -36,4 +43,5 @@ if __FILE__ == $PROGRAM_NAME
   # Tested above in a rubydoctest
   d.teach_trick(:dance){"#{@name}is dancing."}
   # That << just pushes a value onto the array that we initialized in initialize method.
+  puts d.dance
 end
