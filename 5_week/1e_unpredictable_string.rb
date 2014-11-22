@@ -17,6 +17,7 @@ class UnpredictableString < String
   end
 
   def to_s
+    #super
     scramble
   end
 end
