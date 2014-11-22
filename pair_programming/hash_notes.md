@@ -88,7 +88,7 @@ S  Delete looks like it only gives you the value.
     >> h.rehash
     => {2=>"two",:a=>1, :b=>2}
     >> h.select {|k| h[k] == 'two' }
-    => nil
+    => {2=> "two"}
 
 A hash is not mutable right?
 Once defined we cannot add more key and values to it. I think. What do
