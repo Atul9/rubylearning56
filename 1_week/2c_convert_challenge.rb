@@ -59,57 +59,59 @@ upon code posted by others, for example improving someone's code with input
 validation or stretching another's code to handle more units, or fixing
 another's code bugs...
 =end
-
-def conversion_selector(choice)
-  case choice
-  if 1
-    'Celcius'
-  elsif 2
-    'Fahrenheit'
-  elsif 3
-    'Kelvin'
+# doctest: Checking for fahrenheit to other unit conversion
+# >> fahrenheit(212, 'Celcius')
+# => 100
+def fahrenheit(degree,convert_to)
+  if convert_to == 'Celcius'
+    (degree - 32) * 5 / 9
+  elsif convert_to == 'Kelvin'
+    (degree + 459.67) * 5 / 9
   end
 end
+
+# doctest: Celcius to other units
+# >> celcius(100, 'Fahrenheit')
+# => 212
+# doctest: Celcius to kelvin
+# >> celcius(100, 'Kelvin')
+# => 373.15
+def celcius(degree, convert_to)
+  if convert_to == 'Fahrenheit'
+    (degree * 9 / 5.0) + 32
+  elsif convert_to == 'Kelvin'
+    degree + 273.15
+  end
 end
-=begin
+
+# doctest: Kelvin to other units
+# >> kelvin(310.15, 'Celcius')
+# => 37
+def kelvin(degree, convert_to)
+  if convert_to == 'Fahrenheit'
+    (degree - 459.67) * 9 / 5
+  elsif convert_to == 'Celcius'
+    degree - 273.15
+  end
+end
+
 # doctest: Getting a string from the user will cause an error
 # >> my_lambda = ->(value) { begin ; convert_to_celcius(value); rescue => e ; e.class ; end }
 # >> my_lambda['some string']
 # => NoMethodError
 
-# doctest: Convert fahrenheit to celcius
-# >> convert_to_celcius 212
-# => 100
-# doctest: body temperature
-# >> convert_to_celcius(98.6)
-# => 37
-def convert_to_celcius(fahrenheit)
-  (fahrenheit - 32.0) * 5 / 9
-end
-
-# doctest: Convert celcius to fahrenheit
-# >> convert_to_fahrenheit(37)
-# => 98.6
-def convert_to_fahrenheit(celcius)
-  (celcius * 9 / 5.0) + 32
-end
-
-# doctest: Convert celcius  to kelvin
-# >> convert_to_kelvin 100
-# => 373.15
-def convert_to_kelvin(celcius)
-  celcius + 273.15
-end
-
-# doctest: Convert kelvin to celcius
-# >> convert
-=end
 if __FILE__ == $PROGRAM_NAME
-  puts "Select the input unit: \n1.Celcius\n2.Fahrenheit\n3.Kelvin\nEnter the number:"
+  puts "Menu \n1.Celcius\n2.Fahrenheit\n3.Kelvin\nEnter the unit:"
   measurement = gets.chomp
+  puts "Enter the degree"
+  temperature =  gets.to_f
+  puts "Enter the unit to convert into :"
+  convert_to = gets.chomp
   if measurement == 'Celcius'
-    puts "Enter them temperature in fahrenheit to convert to celcius"
-    temperature =  gets.to_f
-    puts convert_to_celcius(temperature)
+    puts celcius(temperature, convert_to)
+  elsif measurement == 'Fahrenheit'
+    puts fahrenheit(temperature, convert_to)
+  elsif measurement == 'kelvin'
+    puts kelvin(temperature, convert_to)
   end
 end
