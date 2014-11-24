@@ -132,11 +132,12 @@ if __FILE__ == $PROGRAM_NAME
   puts "Enter the unit to convert into :"
   convert_to = gets.chomp.downcase
   if measurement == 'celcius'
-    puts celcius(temperature, convert_to)
-  elsif measurement == 'Fahrenheit'
-    puts fahrenheit(temperature, convert_to)
-  elsif measurement == 'Kelvin'
-    puts kelvin(temperature, convert_to)
-  elsif measurement == 'Rankine'
+    puts("After conversion : ", celcius(temperature, convert_to))
+  elsif measurement == 'fahrenheit'
+    puts("After conversion : ", fahrenheit(temperature, convert_to))
+  elsif measurement == 'kelvin'
+    puts("After conversion : ", kelvin(temperature, convert_to))
+  elsif measurement == 'rankine'
+    puts("After conversion : ", rankine(temperature, convert_to))
   end
 end
