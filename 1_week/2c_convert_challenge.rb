@@ -77,10 +77,14 @@ end
 # >> celcius(100, 'Kelvin')
 # => 373.15
 def celcius(degree, convert_to)
-  if convert_to == 'Fahrenheit'
+  if convert_to == 'fahrenheit'
     (degree * 9 / 5.0) + 32
-  elsif convert_to == 'Kelvin'
+  elsif convert_to == 'kelvin'
     degree + 273.15
+  elsif convert_to == 'rankine'
+    (degree + 273.15) * 9 / 5
+  elsif convert_to == 'celcius'
+
   end
 end
 
@@ -92,8 +96,23 @@ def kelvin(degree, convert_to)
     (degree - 459.67) * 9 / 5
   elsif convert_to == 'Celcius'
     degree - 273.15
+  elsif convert_to == 'Rankine'
+    degree * 9/5
   end
 end
+
+def rankine(degree, convert_to)
+  if convert_to == 'Fahrenheit'
+    degree - 459.67
+  elsif convert_to == 'Celcius'
+    (degree - 491.67) * 5 / 9
+  elsif convert_to == 'Kelvin'
+    degree * 5 / 9
+  elsif convert_to == 'Rankine'
+    degree
+  end
+end
+
 
 # doctest: Getting a string from the user will cause an error
 # >> my_lambda = ->(value) { begin ; convert_to_celcius(value); rescue => e ; e.class ; end }
@@ -101,7 +120,7 @@ end
 # => NoMethodError
 
 if __FILE__ == $PROGRAM_NAME
-  puts "Menu \n1.Celcius\n2.Fahrenheit\n3.Kelvin\nEnter the unit:"
+  puts "Menu \nCelcius\nFahrenheit\nKelvin\nRankine\nEnter the unit:"
   measurement = gets.chomp
   puts "Enter the degree"
   temperature =  gets.to_f
@@ -111,7 +130,8 @@ if __FILE__ == $PROGRAM_NAME
     puts celcius(temperature, convert_to)
   elsif measurement == 'Fahrenheit'
     puts fahrenheit(temperature, convert_to)
-  elsif measurement == 'kelvin'
+  elsif measurement == 'Kelvin'
     puts kelvin(temperature, convert_to)
+  elsif measurement == 'Rankine'
   end
 end
