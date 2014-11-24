@@ -63,10 +63,14 @@ another's code bugs...
 # >> fahrenheit(212, 'Celcius')
 # => 100
 def fahrenheit(degree,convert_to)
-  if convert_to == 'Celcius'
+  if convert_to == 'celcius'
     (degree - 32) * 5 / 9
-  elsif convert_to == 'Kelvin'
+  elsif convert_to == 'kelvin'
     (degree + 459.67) * 5 / 9
+  elsif convert_to == 'rankine'
+    degree + 459.67
+  elsif convert_to == 'fahrenheit'
+    degree
   end
 end
 
@@ -84,7 +88,7 @@ def celcius(degree, convert_to)
   elsif convert_to == 'rankine'
     (degree + 273.15) * 9 / 5
   elsif convert_to == 'celcius'
-
+    degree
   end
 end
 
@@ -92,23 +96,24 @@ end
 # >> kelvin(310.15, 'Celcius')
 # => 37
 def kelvin(degree, convert_to)
-  if convert_to == 'Fahrenheit'
+  if convert_to == 'fahrenheit'
     (degree - 459.67) * 9 / 5
-  elsif convert_to == 'Celcius'
+  elsif convert_to == 'celcius'
     degree - 273.15
-  elsif convert_to == 'Rankine'
+  elsif convert_to == 'rankine'
     degree * 9/5
+  elsif convert_to == 'kelvin'
   end
 end
 
 def rankine(degree, convert_to)
-  if convert_to == 'Fahrenheit'
+  if convert_to == 'fahrenheit'
     degree - 459.67
-  elsif convert_to == 'Celcius'
+  elsif convert_to == 'celcius'
     (degree - 491.67) * 5 / 9
-  elsif convert_to == 'Kelvin'
+  elsif convert_to == 'kelvin'
     degree * 5 / 9
-  elsif convert_to == 'Rankine'
+  elsif convert_to == 'rankine'
     degree
   end
 end
@@ -120,13 +125,13 @@ end
 # => NoMethodError
 
 if __FILE__ == $PROGRAM_NAME
-  puts "Menu \nCelcius\nFahrenheit\nKelvin\nRankine\nEnter the unit:"
-  measurement = gets.chomp
+  puts "Menu \n\nCelcius\nFahrenheit\nKelvin\nRankine\n\nEnter the unit:"
+  measurement = gets.chomp.downcase
   puts "Enter the degree"
   temperature =  gets.to_f
   puts "Enter the unit to convert into :"
-  convert_to = gets.chomp
-  if measurement == 'Celcius'
+  convert_to = gets.chomp.downcase
+  if measurement == 'celcius'
     puts celcius(temperature, convert_to)
   elsif measurement == 'Fahrenheit'
     puts fahrenheit(temperature, convert_to)
