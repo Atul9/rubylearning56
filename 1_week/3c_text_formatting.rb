@@ -51,14 +51,14 @@ Here is the sample use, which dictates the method name, the valid inputs for
 the table, the optional arguments, etc. Of course, any questions are welcome.
 
 =begin
- 
+
 multiplication_table (integer, heading = '', decorate = false)
 returns a string object.
 #end
- 
+
 table1 = multiplication_table 9, 'Times Table to 9', true
 table2 = multiplication_table 20
- 
+
 puts table1
 puts
 puts table2
@@ -95,4 +95,26 @@ that must exist as the last character of each line.
 That is if you are using minitest (built into Ruby 1.9), or Test::Unit or Rspec or something other.
 
 =end
+
+def docorate(number)
+end
+def multiplication_table(n, heading = '',decorate = false)
+  table = ''
+  if n == 0
+    table << "0\n"
+  else
+    (1..n).map do|x|
+      (1..n).map do|y|
+        table << "#{(x*y).to_s} "
+        end
+      table << "\n"
+    end
+  end
+end
+table1 = multiplication_table 9, 'Times table to 9', true
+#table2 = multiplication_table 20
+
+puts table1
+#puts
+#puts table2
 
