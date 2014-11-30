@@ -12,6 +12,7 @@ end
 5.times do
   something_repetitive "Hello"
 end
+
 numbers = { :two => 2, :five => 5} # => {:two=>2, :five=>5}
 numbers.keys # => [:two, :five]
 numbers.values # => [2, 5]
