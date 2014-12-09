@@ -4,19 +4,30 @@ class MotorCycle
     # Instance variables
     @make = make
     @color = color
-    end
+  end
   def startEngine
     if (@engineState)
       puts 'Engine Running'
     else
-      @engineState = true
       puts 'Engine Idle'
+      @engineState = true
     end
+    @engineState
   end
   def display
     @make + " " + @color
   end
 end
-m = MotorCycle.new(YAMAHA, black)
-puts m.display
-puts m.startEngine
+#m = MotorCycle.new('YAMAHA', 'black')
+#puts m.display
+#puts m.startEngine
+
+
+
+
+
+
+
+
+# >> Engine Idle
+# >> 
