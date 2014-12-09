@@ -5,13 +5,9 @@ def replace_word(text,original_word, replaced_word)
   regex = %r[\b#{original_word}\b]
   text.gsub(regex,replaced_word)
 end
-# doctest: exploring ARGV and ARGF
-# >> ARGF
-# => ''
 if __FILE__ == $0
   puts 'Enter the filename you want to edit'
-  filename = ARGF.to_s || gets.chomp
-  filename = '/home/atul/RubyLearning/CoreBatch/56/3_week/3wk_2e_text.txt'
+  filename = ARGV[0]
   puts 'Contents of the file: '
   File.open(filename,'r') do|file|
     while line = file.gets
