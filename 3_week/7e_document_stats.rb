@@ -31,7 +31,7 @@ end
 # >> paragraphs "Para1\n\nParad"
 # => 2
 def paragraphs(text)
-  text.split(/\n\n/).size
+  text.split($/).size # Use the Record Separator global variable!
 end
 
 # doctest: sentence count
@@ -73,8 +73,29 @@ def statistics_report(text, rounding = 2)
 end
 
 if __FILE__ == $PROGRAM_NAME
-  file = File.open(ARGV[0] , "r")
+=begin
+doctest: read in the first line of the file, to check for line endings
+>> line = File.new('text.txt', 'r').readlines[0]
+>> line =~ /\r\n/
+=> 63
+doctest: Testing for record separator
+>> $/
+=> "\n"
+doctest: Change the record separator
+>> $/ = "\r\n"
+>> "Now is the\r\nLine separated?\r\n".split($/)
+=> ''
+doctest: old separator
+>> old_record_separator = "\n" 
+=> "\n"
+>> $/ = "\r\n"
+=> "\r\n"
+=end
+  original_record_separator = $/
+  file = File.open(ARGV[0] || 'text.txt' , "r")
   text = file.read
+    $/ = "\r\n" if /\r\n/ =~ text
   puts 'Statistics for your file:'
   puts statistics_report text
+  $/ = original_record_separator
 end
