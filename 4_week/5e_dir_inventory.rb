@@ -18,13 +18,13 @@ def display
   puts Dir.glob('**/*').sort
 end
 #display
-def find_new_files(old,new)
-  IO.readlines(old) - IO.readlines(new)
+def find_new_files(new,old)
+  IO.readlines(new) - IO.readlines(old)
 end
-#puts find_new_files('old-inventory.txt','new-inventory.txt')
-puts (IO.readlines('old-inventory.txt') - IO.readlines('new-inventory.txt')) # Used readlines since readline is a private method of the class IO. readlines is public.
-arr1 = IO.readlines('old-inventory.txt')
-arr2 = IO.readlines('new-inventory.txt')
+puts find_new_files('new-inventory.txt','old-inventory.txt')
+#puts (IO.readlines('old-inventory.txt') - IO.readlines('new-inventory.txt')) # Used readlines since readline is a private method of the class IO. readlines is public.
+#arr1 = IO.readlines('old-inventory.txt')
+#arr2 = IO.readlines('new-inventory.txt')
 
-puts arr2 - arr1
+#puts arr2 - arr1
 #puts [1,2,3] - [2,3,4] # We expect to see 1, as 2 and 3 are removed and 4 doesn't exist to remove from the array. Oh yes I got my mistake.
