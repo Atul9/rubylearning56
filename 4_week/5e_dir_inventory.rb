@@ -28,3 +28,5 @@ puts find_new_files('new-inventory.txt','old-inventory.txt')
 
 #puts arr2 - arr1
 #puts [1,2,3] - [2,3,4] # We expect to see 1, as 2 and 3 are removed and 4 doesn't exist to remove from the array. Oh yes I got my mistake.
+#puts arr2 - arr1
+#puts [1,2,3] - [2,3,4] # We expect to see 1, as 2 and 3 are removed and 4 doesn't exist to remove from the array.
