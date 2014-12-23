@@ -12,6 +12,9 @@ shape. Go for it guys and show me your code.
 
 Note: This exercise is about inheritance, method overriding and method overloading not about UI.
 =end
+
+
+
 class Shape
   def initialize(shape, sound)
     @shape = shape
