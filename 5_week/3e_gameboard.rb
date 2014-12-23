@@ -50,21 +50,17 @@ file itself, run
 testgameboard -show
 =end
 class GameBoard
-  def location_cells(location)
-    @location = location
+  def set_locations_cells(locations)
+    @locations = locations
   end
 
-  def check_guess(guess)
+  def check_yourself(guess)
     @guess = guess.to_i
-    puts guess_result = hit_or_miss
-    if guess_result == "hit"
-      remove_target
-    end
-    finished?
+    hit_or_miss || remove_target && finished?
   end
   private
   def hit_or_miss
-    @locations.include?(@guess) ? "hit" : "miss"
+    puts @locations.include?(@guess) ? "Hit" : "Miss"
   end
 
   def remove_target
@@ -72,8 +68,37 @@ class GameBoard
   end
 
   def finished?
-     if @locations.empty?
-       puts "End"
-     end
+    if @locations.empty?
+      puts "End"
+      return 'kill'
+    end
   end
 end
+
+__END__
+Here is my run
+
+Enter a number:
+  3
+Miss
+Enter a number:
+  2
+Miss
+Enter a number:
+  1
+Miss
+Enter a number:
+  5
+Hit
+Enter a number:
+  6
+Hit
+Enter a number:
+  7
+Miss
+Enter a number:
+  4
+Hit
+End
+You took 7 guesses
+
