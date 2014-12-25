@@ -13,7 +13,7 @@ class Shape
     @direction = direction
     @extension = extension
   end
-  
+
   def rotate
     "#{@shape} rotates #{@direction}"
   end
@@ -31,12 +31,15 @@ end
 class Square < Shape; end
 class Circle < Shape; end
 class Triangle < Shape; end
-class Amoeba < Shape; end
-
+class Amoeba < Shape
+  def rotate
+    "around a point on one end"
+  end
+end
 [Square.new("square", "Guitar"),
 Triangle.new("Triangle", "Drums"),
 Circle.new,
-Amoeba.new("amoeba", "Nom Nom Nom", "around a point on one end", "hif")
+Amoeba.new("amoeba", "Nom Nom Nom", "hif")
 ].each do |shape|
   puts shape.click
   puts
