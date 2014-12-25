@@ -7,7 +7,9 @@ file. The other figures like rectangle rotate around the center. I want the
 amoeba shape to rotate around a point on one end, like a clock hand !"
 =end
 class Shape
-  def initialize(shape = nil, sound = nil, direction = 'by 360 defrees', extension = 'aif')
+  # Do we really want to use the shape sound direction and extension as "positional arguments"?  or could we improve by passing in 
+  # a hash as our arguments to our shapes?
+  def initialize(shape: nil, sound: nil, direction: 'by 360 degrees', extension: 'aif')
     @shape = self.class.name
     @sound = self.class.name
     @direction = direction
@@ -32,15 +34,34 @@ class Square < Shape; end
 class Circle < Shape; end
 class Triangle < Shape; end
 class Amoeba < Shape
+  def initialize(*args)  # it is a collection of arguments, it becomes separate (exploded array) of arguments.
+    super
+    @extension = 'hif'
+  end
   def rotate
     "around a point on one end"
   end
+
+
+  def play
+    "#{@shape}.#{@extension}"
+  end
 end
-[Square.new("square", "Guitar"),
-Triangle.new("Triangle", "Drums"),
+
+[Square.new,
+Triangle.new,
 Circle.new,
-Amoeba.new("amoeba", "Nom Nom Nom", "hif")
+=begin
+doctest: Ameoba will automatically be different
+>> my_ameoba = Amoeba.new
+>> my_ameoba.rotate
+=> "around a point on one end"
+>> my_ameoba.play
+=> "Amoeba.hif"
+=end
+Amoeba.new(shape: "amoeba", sound: "Nom Nom Nom", extension: "hif")
 ].each do |shape|
   puts shape.click
   puts
 end
+
