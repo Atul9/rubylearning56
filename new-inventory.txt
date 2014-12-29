@@ -41,12 +41,3 @@
 3_week/text.txt
 3_week/text1.txt
 4_week
-4_week/1c_adding_individual_dog_behaviors_challenge.rb
-4_week/1e_dog_class.rb
-4_week/2c_statistics_challenge_word_counting.rb
-4_week/2e_rectangle_class.rb
-4_week/3e_deaf_grandma_modified.rb
-4_week/4e_swap_contents.rb
-4_week/5e_dir_inventory.rb
-4_week/a1.txt
-4_week/b1.txt

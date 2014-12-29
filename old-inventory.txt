@@ -1,14 +1,3 @@
-1_week
-1_week/1c_year_months.rb
-1_week/1e_operator_precedence.rb
-1_week/2c_convert_challenge.rb
-1_week/2e_sprintf.rb
-1_week/3c_text_formatting.rb
-1_week/3e_how_old.rb
-1_week/4e_minutes_in_a_year.rb
-1_week/5e_value_of_a_variable.rb
-1_week/6e_convert.rb
-2_week
 2_week/1c_prompt.rb
 2_week/1e_split_a_string.rb
 2_week/2c_formal_logic_challenge.rb
