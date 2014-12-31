@@ -26,6 +26,8 @@ module CurrencyConvertor
   end
 end
 
-using CurrencyConvertor
-money = DTRConvertor.new
-puts money.convert(100.0)
+module CC
+  using CurrencyConvertor
+  money = DTRConvertor.new
+  puts money.convert(100.0)
+end
