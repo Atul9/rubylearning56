@@ -11,5 +11,9 @@ the Date class. You must account for leap years in this exercise.
 
 require 'date'
 def month_days(month, year = Date.today.year)
-  
+  last_day_of_month = Date.civil(year, month, -1)
+  "#{last_day_of_month.day} (#{Date::ABBR_MONTHNAMES[last_day_of_month.month]}) #{last_day_of_month.year}"
 end
+
+puts month_days(5)
+puts month_days(2, 2000)
