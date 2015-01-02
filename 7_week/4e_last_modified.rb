@@ -9,5 +9,3 @@ def last_modified(file)
   "File was last modified #{days_diff} days ago."
 end
 puts last_modified('b1.txt')
-
-
