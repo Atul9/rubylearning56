@@ -14,5 +14,7 @@ def month_days(month, year = Date.today.year)
   Date.civil(year, month, -1).day
 end
 
-puts month_days(5)
-puts month_days(2, 2000)
+days = month_days(2)
+puts "The number of days in the month of February are %i" % days
+days = month_days(5, 2000)
+puts "The number of days in the month of May %i" % days
