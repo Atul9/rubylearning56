@@ -14,7 +14,7 @@ def month_days(month, year = Date.today.year)
   Date.civil(year, month, -1).day
 end
 
-days = month_days(2)
-puts "The number of days in the month of February are %i" % days
-days = month_days(5, 2000)
-puts "The number of days in the month of May %i" % days
+dates = [[2], [5, 2000], [2, 2001], [2, 2004], [12, 2015]]
+dates.each do |month, year = Time.now.year|
+  puts "The number of days in the month of #{Date::ABBR_MONTHNAMES[month]}, #{year} are %i" % month_days(month, year)
+end
