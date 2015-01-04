@@ -13,7 +13,8 @@
 # This program works as expected in Rubinius
 class UnpredictableString < String
   def initialize(something)
-    @unpredictable = String.new(something)
+    @unpredictable = something.to_s #String.new(something)
+
   end
   def scramble
     @unpredictable.split('').shuffle!.join
@@ -26,7 +27,7 @@ class UnpredictableString < String
 end
 t = UnpredictableString.new('It was a dark and stromy night')
 10.times do
-  puts t.scramble
+  puts t
 end
 # When we just call the object of UnpredictableString class Without inhering from String class we get the unscrambled string
 # But after inheritance we dont get the result.
