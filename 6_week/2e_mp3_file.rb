@@ -12,7 +12,10 @@ ID3 tag present, then the 30 bytes after TAG contain the name of the song, the
 song.mp3 file is available to test your program. Use Symbols, wherever
 possible.
 =end
+#There should be a schema or data structure for reading the name, artist.
 class MP3
+  schema = {title: 20, artist: 30, album: 30, year: 4}
+
   def initialize(song)
     @song = song
   end
@@ -22,4 +25,10 @@ class MP3
 
     end
   end
+
+  def read_data
+    IO.read(@song) == 'TAG'
+  end
+
 end
+song = MP3.new('song.mp3')
